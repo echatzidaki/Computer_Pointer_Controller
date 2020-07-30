@@ -1,0 +1,8 @@
+models total loading time (s): 0.7627449035644531
+FD inference time per frame (s): 1.1236345767974854
+FLD inference time  per frame (s): 0.04594707489013672
+HPE inference time per frame (s): 0.07950186729431152
+GE inference time per frame (s): 0.08041238784790039
+Total inference time (s): 82.78374147415161
+Frames: 59
+FPS: 0.7127003316034243
