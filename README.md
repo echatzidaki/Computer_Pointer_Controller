@@ -2,7 +2,8 @@
 
 ![cpc](./bin/cpc.png)
 
-Using a gaze detection model it is possible to control the mouse pointer of your computer, by estimating the gaze of the user's eyes and change the mouse pointer position accordingly. This project can run multiple models in the same machine and coordinate the flow of data between those models.
+Computer pointer controller app run multiple models in the OpenVINO toolkit on the same machine to control your computer pointer using your eye gaze. This project can run multiple models in the same machine and coordinate the flow of data between those models.
+
 
 [![Udacity](https://video.udacity-data.com/topher/2020/April/5e923081_pipeline/pipeline.png)](https://video.udacity-data.com/topher/2020/April/5e923081_pipeline/pipeline.png)
 
