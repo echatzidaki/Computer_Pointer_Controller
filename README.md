@@ -8,13 +8,6 @@ The Computer Pointer Controller app runs multiple models in the same machine and
 
 [![Udacity](https://video.udacity-data.com/topher/2020/April/5e923081_pipeline/pipeline.png)](https://video.udacity-data.com/topher/2020/April/5e923081_pipeline/pipeline.png)
 
-## Project Overview
-
-1. Proposed a possible hardware solution
-2. Built out the person detection application and tested its performance on the DevCloud using multiple hardware types
-3. Compared the performance to see which hardware performed best
-4. Revised the primal proposal based on the test results
-
 ## Project Set Up and Installation
 
 1. Install the intel openVINO toolkit for your system from the official website
