@@ -1,5 +1,7 @@
 # Computer Pointer Controller
 
+![cpc](./bin/cpc.png)
+
 Using a gaze detection model it is possible to control the mouse pointer of your computer, by estimating the gaze of the user's eyes and change the mouse pointer position accordingly. This project can run multiple models in the same machine and coordinate the flow of data between those models.
 
 [![Udacity](https://video.udacity-data.com/topher/2020/April/5e923081_pipeline/pipeline.png)](https://video.udacity-data.com/topher/2020/April/5e923081_pipeline/pipeline.png)
@@ -72,7 +74,7 @@ By default the app run with the webcam on a CPU with Intel OpenVINO models in FP
 |  -ge | Specify Path to .xml file of Gaze Estimation model.|
 |  -i |Specify Path to video file or enter cam for webcam.|
 |  -ext |MKLDNN (CPU)-targeted custom layers.Absolute path to a shared library with the kernels impl.|
-|  -graphics | Specify the models you want to show from fd, fld, hpe, ge, all, stats like --show_graphics fd hpe fld (Seperate each flag by space)for see the visualization of different model outputs of each frame,fd for Face Detection, fld for Facial Landmark Detectionhpe for Head Pose Estimation, ge for Gaze Estimation,nog for output without graphicsstats to show inference time.|
+|  -graphics | Specify the models you want to show from fd, fld, hpe, ge, all, statslike --show_graphics fd hpe fld (Seperate each flag by space)for see the visualization of different model outputs of each frame,fd for Face Detection, fld for Facial Landmark Detectionhpe for Head Pose Estimation, ge for Gaze Estimation,nog for output without graphicsstats to show inference time.|
 |  -prob |(Optional) Probability threshold for detection filtering (0.5 by default) |
 |  -d |(Optional) Specify the target device to infer on: CPU, GPU, FPGA or MYRIAD is acceptable. Default device is CPU. 
 |  -devfd | (Optional) Specify the target device to infer on for the Face Detection model (CPU by default) {CPU,GPU,MYRIAD,MULTI:CPU,MYRIAD,MULTI:GPU,MYRIAD,MULTI:CPU,GPU,MYRIAD,MULTI:HDDL,GPU,HETERO:MYRIAD,CPU,HETERO:GPU,CPU,HETERO:FPGA,GPU,CPU,HDDL}.|
@@ -135,12 +137,11 @@ By default the app run with the webcam on a CPU with Intel OpenVINO models in FP
 ```
 
 ## Benchmarks
-The application build in a Linux VirtualBox vm. Virtual box does not support GPU connection. The system used only the CPU. It is recommended to use VMWare to connect and run on the GPU. The CPU that was used is an Intel Core i3-8145U @2.1-2.3GHz with 8 GB RAM. The VirtualBox used half of CPU cores (2) and 4GB RAM.
+The application build in a Linux VirtualBox vm. Virtual bos does not support GPU connection. The system used only the CPU. It is recommended to use VMWare to connect and run on the GPU. The CPU that was used is an Intel Core i3-8145U @2.1-2.3GHz with 8 GB RAM. The VirtualBox used half of CPU cores (2) and 4GB RAM.
 
 ## Results
 
 Inference time for FP32, FP16 and INT8 models.
-FP32-INT1 is the binary edition of face detection pretrained model. 
 
 | Async - Model  |FP32-INT1 + FP16|  FP16 + FP16 | FP32-INT1 + FP16-INT8|
 | ----------- | ----------- | ----------- | ----------- | 
@@ -158,7 +159,7 @@ Inference time of models (asynchronous) perform better at Face Detection FP32-IN
 | Head Pose Est.        | **0.10491204261779785** | 0.10558724403381348 | 0.10793638229370117 | 
 | Gaze Est.             | 0.12326288223266602 | 0.11881518363952637 | **0.0959312915802002** | 
 
-At synchronous mode best performance (inference time) varies. However, the FP32-INT1 seems to be the best choice.
+At synchronous mode best performance (inference time) varies. However, the FP32-INT1 seems to be the best choice, between them.
 
 | Inference Time - Mode  |   FP32-INT1 + FP16  |  FP16 + FP16 | FP32-INT1 + FP16-INT8|
 | ----------- | ----------- | ----------- | ----------- | 
@@ -187,4 +188,4 @@ Using async inference, the application achieves better performance, due to  mult
 
 ### Edge Cases
 
-The application uses the first detected face and ignores anyone else.
+The application uses the first detected face
