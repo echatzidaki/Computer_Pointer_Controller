@@ -2,7 +2,8 @@
 
 ![cpc](./bin/cpc.png)
 
-Computer pointer controller app run multiple models in the OpenVINO toolkit on the same machine to control your computer pointer using your eye gaze. This project can run multiple models in the same machine and coordinate the flow of data between those models.
+Computer Pointer Controller app controls the mouse of your computer using the Gaze Estimation model, estimate the gaze of the user's eyes, and change the mouse pointer position accordingly. 
+The Computer Pointer Controller app runs multiple models in the same machine and coordinates the flow of data between those models. 
 
 
 [![Udacity](https://video.udacity-data.com/topher/2020/April/5e923081_pipeline/pipeline.png)](https://video.udacity-data.com/topher/2020/April/5e923081_pipeline/pipeline.png)
