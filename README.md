@@ -132,7 +132,7 @@ By default the app run with the webcam on a CPU with Intel OpenVINO models in FP
 ```
 
 ## Benchmarks
-The application build in a Linux VirtualBox vm. Virtual bos does not support GPU connection. The system used only the CPU. It is recommended to use VMWare to connect and run on the GPU. The CPU that was used is an Intel Core i3-8145U @2.1-2.3GHz with 8 GB RAM. The VirtualBox used half of CPU cores (2) and 4GB RAM.
+The application build in a Linux VirtualBox vm. Virtual box does not support GPU connection. The system used only the CPU. It is recommended to use VMWare to connect and run on the GPU. The CPU that was used is an Intel Core i3-8145U @2.1-2.3GHz with 8 GB RAM. The VirtualBox used half of CPU cores (2) and 4GB RAM.
 
 ## Results
 
