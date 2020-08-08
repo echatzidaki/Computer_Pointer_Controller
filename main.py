@@ -19,14 +19,10 @@ from src.head_pose_estimation import HeadPoseEstimator
 from src.facial_landmarks_detection import FacialLandmarksDetector
 from src.gaze_estimation import GazeEstimator
 
-# DEF_FD_MPATH = "models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001"
-DEF_FD_MPATH = "models/intel/face-detection-adas-0001/FP16/face-detection-adas-0001"
+DEF_FD_MPATH = "models/intel/face-detection-adas-binary-0001/FP32-INT1/face-detection-adas-binary-0001"
 DEF_HPE_MPATH = "models/intel/head-pose-estimation-adas-0001/FP16/head-pose-estimation-adas-0001"
 DEF_FLD_MPATH = "models/intel/landmarks-regression-retail-0009/FP16/landmarks-regression-retail-0009"
 DEF_GE_MPATH = "models/intel/gaze-estimation-adas-0002/FP16/gaze-estimation-adas-0002"
-# DEF_HPE_MPATH = "models/intel/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001"
-# DEF_FLD_MPATH = "models/intel/landmarks-regression-retail-0009/FP32/landmarks-regression-retail-0009"
-# DEF_GE_MPATH = "models/intel/gaze-estimation-adas-0002/FP32/gaze-estimation-adas-0002"
 
 
 DEVICE_TARGETS = ['CPU', 'GPU', 'MYRIAD', 'MULTI:CPU,MYRIAD', 'MULTI:GPU,MYRIAD', 'MULTI:CPU,GPU,MYRIAD', 'MULTI:HDDL,GPU', 'HETERO:MYRIAD,CPU', 'HETERO:GPU,CPU', 'HETERO:FPGA,GPU,CPU', 'HDDL']
@@ -81,15 +77,6 @@ def build_argparser():
     parser.add_argument('-devfd',  '--device_fd', default='CPU', choices=DEVICE_TARGETS,
                         help="(Optional) Specify the target device to infer on" \
                             "for the Face Detection model (CPU by default).")
-    # parser.add_argument('-devfld', default='CPU', choices=DEVICE_TARGETS,
-                        # help="(Optional) Specify the target device to infer on" \
-                            # "for the Facial Landmark Detection model (CPU by default).")
-    # parser.add_argument('-devhpe', default='CPU', choices=DEVICE_TARGETS,
-                        # help="(Optional) Specify the target device to infer on" \
-                            # "for the Head Pose Estimation model (CPU by default).")
-    # parser.add_argument('-devge', default='CPU', choices=DEVICE_TARGETS,
-                        # help="(Optional) Specify the target device to infer on" \
-                                      # "for the Gaze Estimation model (CPU by default).")
                              
     parser.add_argument('-async', "--async_mode", action='store_true', required=False, default=True,
                         help="(Optional) Perform sync  or async inference..")
@@ -163,8 +150,7 @@ def main():
                             
     facedetect.load_model()
 
-    faciallandmarksdetect = FacialLandmarksDetector(model_name=pathmodels_dict['FLD'],
-                                 # prob_threshold=args.prob_threshold, 
+    faciallandmarksdetect = FacialLandmarksDetector(model_name=pathmodels_dict['FLD'], 
                                  device=args.device,
                                  extensions=args.extensions,
                                  async_infer=args.async_mode)
@@ -172,7 +158,6 @@ def main():
     faciallandmarksdetect.load_model()
     
     headposeestimate = HeadPoseEstimator(model_name=pathmodels_dict['HPE'],
-                                 # prob_threshold=args.prob_threshold, 
                                  device=args.device,
                                  extensions=args.extensions,
                                  async_infer=args.async_mode)
@@ -196,8 +181,6 @@ def main():
             if not option in ['fld', 'hpe', 'fd', 'ge', 'nog', 'stats']:
                 log.error("Invalid flag or oprtions are not separated with spaces. Try again.")
                 sys.exit(1)
-
-    # log save out file
 
     counter = 0
     start_total_inference_time = time.time()
@@ -266,7 +249,7 @@ def main():
                     if len(gaze) != 0 and 'ge' in args.show_graphics:
                         out_graphics.eyes_gaze_estimation(eyes_coord, face_coords, gaze, crop_face )
 
-                    # Move the mouse n screen
+                    # Move the mouse on screen
                     if len(gaze) != 0:
                         # Camera
                         if stream_graphics: 
